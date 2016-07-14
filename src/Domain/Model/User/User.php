@@ -40,10 +40,10 @@ class User{
      */
     public function __construct($userId,$name, $lastname, $email){
 
-        this.$userId = userId;
-        this.$name = $name;
-        this.$lastname = $lastname;
-        this.$email = $email;
+        $this->userId = userId;
+        $this->name = $name;
+        $this->lastname = $lastname;
+        $this->email = $email;
     }
 
     /**

@@ -49,12 +49,12 @@ class Idea{
      */
     public function __construct($ideaId, $author, $title, $body){
 
-        
-        this.$ideaId  = $ideaId;
-        this.$author = $author;
-        this.$title = $title;
-        this.$body = $body;
-        this.$this->state;
+
+        $this->ideaId  = $ideaId;
+        $this->author = $author;
+        $this->title = $title;
+        $this->body = $body;
+        $this->state = true;
 
     }
 
