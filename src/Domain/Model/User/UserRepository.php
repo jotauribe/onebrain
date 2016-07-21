@@ -12,4 +12,10 @@ interface UserRepository{
 
     public function userOfId();
 
+    public function nextIdentity();
+
+    public function postOfId($aPostId);
+
+    public function save($aPost);
+
 }

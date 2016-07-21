@@ -1,0 +1,15 @@
+{
+  "name": "onebrain/onebrain",
+  "description": "The Onebrain core application",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Jota Uribe",
+      "email": "xxx@xxx.xxx"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "v2.5.*"
+  }
+}
