@@ -10,8 +10,15 @@ namespace Onebrain\Domain\Model\User;
 
 interface UserRepository{
 
-    public function userOfId();
+    /**
+     * @param UserId $userId
+     * @return User
+     */
+    public function userOfId($userId);
 
+    /**
+     * @return UserId
+     */
     public function nextIdentity();
 
     public function postOfId($aPostId);

@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "doctrine/orm": "v2.5.*"
+    "doctrine/orm": "v2.5.*",
+    "ramsey/uuid": "3.4.1"
   }
 }

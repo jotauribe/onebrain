@@ -9,6 +9,8 @@
 namespace Onebrain\Domain\Model;
 
 
+use Doctrine\ORM\Query\AST\NullComparisonExpression;
+
 abstract class Identity{
 
     /**
@@ -31,7 +33,7 @@ abstract class Identity{
      */
     public function equals($anObject = null){
 
-        return ((!$anObject == null) && ($anObject instanceof self) && ($anObject->id() == $this->id()));
+        return ((!$anObject == null) && ($anObject instanceof $this) && ($anObject->id() == $this->id()));
 
     }
 
