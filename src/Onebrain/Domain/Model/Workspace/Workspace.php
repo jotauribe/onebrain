@@ -14,7 +14,7 @@ class Workspace{
 
     private $name;
 
-    private $context;
+    private $description;
     
 }
 

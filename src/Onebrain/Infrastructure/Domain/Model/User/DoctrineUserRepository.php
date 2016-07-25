@@ -9,13 +9,14 @@
 namespace Onebrain\Infrastructure\Domain\Model\User;
 
 
+use Doctrine\ORM\EntityRepository;
 use Onebrain\Domain\Model\User\UserRepository;
 
-class DoctrineUserRepository implements UserRepository{
+class DoctrineUserRepository extends EntityRepository implements UserRepository{
 
 
     public function userOfId($userId){
-        // TODO: Implement userOfId() method.
+        $this->findOneBy($userId);
     }
 
     public function nextIdentity()
