@@ -10,27 +10,44 @@ namespace Onebrain\Infrastructure\Domain\Model\User;
 
 
 use Doctrine\ORM\EntityRepository;
+use Onebrain\Domain\Model\User\User;
+use Onebrain\Domain\Model\User\UserId;
 use Onebrain\Domain\Model\User\UserRepository;
 
 class DoctrineUserRepository extends EntityRepository implements UserRepository{
 
-
+    /**
+     * @param UserId $userId
+     * @return User
+     */
     public function userOfId($userId){
-        $this->findOneBy($userId);
+
+        return $this->find($userId);
+
     }
 
-    public function nextIdentity()
-    {
+    public function nextIdentity(){
+
         // TODO: Implement nextIdentity() method.
+
     }
 
-    public function postOfId($aPostId)
-    {
-        // TODO: Implement postOfId() method.
+    /**
+     * @param User $user
+     */
+    public function save($user){
+
+       $this->getEntityManager()->persist($user);
+
     }
 
-    public function save($aPost)
-    {
-        // TODO: Implement save() method.
+    /**
+     * @param \ArrayObject
+     * @return \ArrayObject
+     */
+    public function userOf($criterias){
+
+        return $this->findOneBy($criterias);
+
     }
 }

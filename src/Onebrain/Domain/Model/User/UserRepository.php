@@ -21,8 +21,16 @@ interface UserRepository{
      */
     public function nextIdentity();
 
-    public function postOfId($aPostId);
+    /**
+     * @param \ArrayObject $criterias
+     * @return \ArrayObject
+     */
+    public function userOf($criterias);
 
-    public function save($aPost);
+    /**
+     * @param User $aUser
+     * @return void
+     */
+    public function save($aUser);
 
 }

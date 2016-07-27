@@ -20,7 +20,7 @@ class Problem{
     private $problemId;
 
     /**
-     * @var
+     * @var Wor
      */
     private $workspaceId;
 
