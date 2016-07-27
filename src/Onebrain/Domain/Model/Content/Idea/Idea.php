@@ -8,21 +8,23 @@
 
 namespace Onebrain\Domain\Model\Content\Idea;
 
+use Onebrain\Domain\Model\User\UserId;
+
 class Idea{
     /**
-     * @var string
+     * @var IdeaId
      */
     private $ideaId;
 
     /**
-     * @var string
+     * @var ProblemId
      */
-    private $author;
+    private $problemId;
 
     /**
-     * @var Context
+     * @var UserId
      */
-    private $context;
+    private $authorId;
 
     /**
      * @var string
@@ -32,12 +34,22 @@ class Idea{
     /**
      * @var string
      */
-    private $body;
+    private $description;
+
+    /**
+     * @var \DateTime
+     */
+    private $createdOn;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedOn;
 
     /**
      * @var bool
      */
-    private $state;
+    private $isActive;
 
     /**
      * Idea constructor.
@@ -54,7 +66,7 @@ class Idea{
         $this->author = $author;
         $this->title = $title;
         $this->body = $body;
-        $this->state = true;
+        $this->isActive = true;
 
     }
 
@@ -85,9 +97,9 @@ class Idea{
     /**
      * @return string
      */
-    public function body()
+    public function description()
     {
-        return $this->body;
+        return $this->description;
     }
 
     /**
@@ -101,9 +113,36 @@ class Idea{
     /**
      * @param string $body
      */
-    public function editBody($body)
+    public function editDescription($description)
     {
-        $this->body = $body;
+        $this->body = $description;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(){
+
+        return $this->isActive;
+
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function createdOn(){
+
+        return $this->createdOn;
+
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function updatedOn(){
+
+        return $this->updatedOn;
+
     }
 
 }

@@ -11,7 +11,7 @@ namespace Onebrain\Domain\Model\User;
 use Onebrain\Domain\Model\Identity;
 
 
-class UserId extends Identity{
+class UserId implements Identity{
 
 
 

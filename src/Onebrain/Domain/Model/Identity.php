@@ -8,33 +8,21 @@
 
 namespace Onebrain\Domain\Model;
 
-
-use Doctrine\ORM\Query\AST\NullComparisonExpression;
-
-abstract class Identity{
-
-    /**
-     * @var string
-     */
-    private $id;
+interface Identity{
 
     /**
      * @return string
      */
-    public function id(){
-
-        return $this->id;
-
-    }
+    public function id();
 
     /**
      * @param Identity $anObject
      * @return bool
      */
-    public function equals($anObject = null){
+    //public function equals($anObject = null){
+    //
+    //    return ((!$anObject == null) && ($anObject instanceof $this) && ($anObject->id() == $this->id()));
 
-        return ((!$anObject == null) && ($anObject instanceof $this) && ($anObject->id() == $this->id()));
-
-    }
+    //}
 
 }
