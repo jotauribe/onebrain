@@ -9,7 +9,27 @@
 namespace Onebrain\Onebrain\Domain\Model\Content\Problem;
 
 
-class ProblemId
-{
+use Onebrain\Domain\Model\Identity;
 
+class ProblemId implements Identity{
+
+    /**
+     * @var string
+     */
+    private $id;
+
+    public function __construct($anId){
+
+        $this->id = $anId;
+
+    }
+
+    /**
+     * @return string
+     */
+    public function id(){
+
+        return $this->id;
+
+    }
 }

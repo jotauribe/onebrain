@@ -11,6 +11,7 @@ namespace Onebrain\Onebrain\Domain\Model\Content\Problem;
 
 use Onebrain\Domain\Model\User\User;
 use Onebrain\Domain\Model\User\UserId;
+use Onebrain\Domain\Model\Workspace\WorkspaceId;
 
 class Problem{
 
@@ -20,7 +21,7 @@ class Problem{
     private $problemId;
 
     /**
-     * @var Wor
+     * @var WorkspaceId
      */
     private $workspaceId;
 
@@ -28,5 +29,27 @@ class Problem{
      * @var UserId
      */
     private $authorId;
+
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    public function __construct($problemId, $workspaceId, $authorId, $title, $description){
+
+        $this->problemId = $problemId;
+        $this->workspaceId = $workspaceId;
+        $this->authorId = $authorId;
+        $this->title = $title;
+        $this->description = $description;
+
+    }
+
+
 
 }

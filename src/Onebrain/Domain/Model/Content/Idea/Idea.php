@@ -9,6 +9,7 @@
 namespace Onebrain\Domain\Model\Content\Idea;
 
 use Onebrain\Domain\Model\User\UserId;
+use Onebrain\Onebrain\Domain\Model\Content\Problem\ProblemId;
 
 class Idea{
     /**
@@ -59,14 +60,16 @@ class Idea{
      * @param string $title
      * @param string $body
      */
-    public function __construct($ideaId, $author, $title, $body){
+    public function __construct($ideaId, $authorId, $title, $description){
 
 
         $this->ideaId  = $ideaId;
-        $this->author = $author;
+        $this->authorId = $authorId;
         $this->title = $title;
-        $this->body = $body;
+        $this->description = $description;
         $this->isActive = true;
+        $this->createdOn = new \DateTime();
+
 
     }
 
