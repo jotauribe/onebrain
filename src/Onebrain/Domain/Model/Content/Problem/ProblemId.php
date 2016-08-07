@@ -32,4 +32,10 @@ class ProblemId implements Identity{
         return $this->id;
 
     }
+
+    public function getName(){
+
+        return 'ProblemId';
+
+    }
 }

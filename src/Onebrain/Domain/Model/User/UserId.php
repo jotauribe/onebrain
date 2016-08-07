@@ -21,4 +21,12 @@ class UserId implements Identity{
     {
         // TODO: Implement id() method.
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'UserId';
+    }
 }

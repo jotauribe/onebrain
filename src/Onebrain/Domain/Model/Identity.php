@@ -16,13 +16,17 @@ interface Identity{
     public function id();
 
     /**
+     * @return string
+     */
+    public function getName();
+
+    /**
      * @param Identity $anObject
      * @return bool
      */
     //public function equals($anObject = null){
     //
     //    return ((!$anObject == null) && ($anObject instanceof $this) && ($anObject->id() == $this->id()));
-
     //}
 
 }

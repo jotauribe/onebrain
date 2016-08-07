@@ -36,4 +36,12 @@ class WorkspaceId implements Identity{
         return $this->id;
 
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'WorkspaceId';
+    }
 }
