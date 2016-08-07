@@ -8,10 +8,11 @@
 
 namespace Onebrain\Domain\Model\User;
 
+
 class User{
 
     /**
-     * @var string
+     * @var UserId
      */
     private $userId;
 

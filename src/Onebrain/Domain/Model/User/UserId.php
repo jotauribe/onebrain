@@ -14,5 +14,11 @@ use Onebrain\Domain\Model\Identity;
 class UserId implements Identity{
 
 
-
+    /**
+     * @return string
+     */
+    public function id()
+    {
+        // TODO: Implement id() method.
+    }
 }

@@ -10,10 +10,19 @@ namespace Onebrain\Domain\Model\Workspace;
 
 class Workspace{
 
+    /**
+     * @var WorkspaceId
+     */
     private $workspaceId;
 
+    /**
+     * @var string
+     */
     private $name;
 
+    /**
+     * @var string
+     */
     private $description;
     
 }
