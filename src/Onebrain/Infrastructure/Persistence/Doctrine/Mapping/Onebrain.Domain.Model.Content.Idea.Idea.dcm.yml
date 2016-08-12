@@ -1,0 +1,17 @@
+Onebrain\Domain\Model\Content\Idea\Idea:
+  type: entity
+  repositoryClass: Onebrain\Infraestructure\Domain\Model\Content\Idea\DoctrineIdeaRepository
+  table: idea
+  id:
+    IdeaId:
+      column: id
+      type: UserId
+  fields:
+    title:
+      type: string
+      length: 128
+    description: string
+      type: string
+  manyToMany:
+    author:
+      targetEntity: User

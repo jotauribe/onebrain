@@ -15,50 +15,52 @@ class Idea{
     /**
      * @var IdeaId
      */
-    private $ideaId;
+    protected $ideaId;
 
     /**
      * @var ProblemId
      */
-    private $problemId;
+    protected $problemId;
 
     /**
      * @var UserId
      */
-    private $authorId;
+    protected $authorId;
 
     /**
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      */
-    private $description;
+    protected $description;
 
     /**
      * @var \DateTime
      */
-    private $createdOn;
+    protected $createdOn;
 
     /**
      * @var \DateTime
      */
-    private $updatedOn;
+    protected $updatedOn;
 
     /**
      * @var bool
      */
-    private $isActive;
+    protected $isActive;
 
     /**
      * Idea constructor.
      *
      * @param string $ideaId
-     * @param string $author
+     * @param $authorId
      * @param string $title
-     * @param string $body
+     * @param $description
+     * @internal param string $author
+     * @internal param string $body
      */
     public function __construct($ideaId, $authorId, $title, $description){
 

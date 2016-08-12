@@ -6,7 +6,7 @@
  * Time: 2:01 PM
  */
 
-require '..\..\vendor\autoload.php';
+require '..\vendor\autoload.php';
 
 
 var_dump((Onebrain\Infrastructure\Domain\Model\OrderedUuidIdentity::orderedUuid()));
