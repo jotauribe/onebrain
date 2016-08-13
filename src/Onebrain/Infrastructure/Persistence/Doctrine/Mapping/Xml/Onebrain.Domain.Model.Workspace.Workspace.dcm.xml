@@ -1,0 +1,45 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="Onebrain\Domain\Model\Workspace\Workspace"
+            repository-class="Onebrain\Infrastructure\Domain\Model\Workspace\DoctrineWorkspaceRepository">
+
+        <id name="workspaceId"
+            type="string"
+            length="36"
+            column="id" >
+            <generator strategy="NONE" />
+        </id>
+
+        <field name="name"
+               type="string"
+               length="32"
+               nullable="false"/>
+
+        <field name="lastname"
+               type="string"
+               length="32" />
+
+        <field name="email"
+               type="string"
+               length="128" />
+
+        <field name="updatedOn"
+               type="date"
+               nullable="false" />
+
+        <field name="isActive"
+               type="boolean"
+               column="is_active" />
+
+        <field name="problemId"
+               type="ProblemId" />
+
+        <field name="authorId"
+               type="UserId" />
+
+    </entity>
+
+</doctrine-mapping>

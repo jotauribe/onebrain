@@ -8,23 +8,46 @@
 
 namespace Onebrain\Domain\Model\Workspace;
 
+use Onebrain\Domain\Model\User\UserId;
+
 class Workspace{
 
     /**
      * @var WorkspaceId
      */
-    private $workspaceId;
+    protected $workspaceId;
 
     /**
      * @var string
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      */
-    private $description;
-    
+    protected $description;
+
+    /**
+     * @var UserId
+     */
+    protected $ownerId;
+
+    /**
+     * Workspace constructor.
+     * @param WorkspaceId $workspaceId
+     * @param string $name
+     * @param string $description
+     * @param UserId $ownerId
+     */
+    public function __construct($workspaceId, $name, $description, $ownerId){
+
+        $this->workspaceId  = $workspaceId;
+        $this->name = $name;
+        $this->description = $description;
+        $this->ownerId = $ownerId;
+    }
+
+
 }
 
 

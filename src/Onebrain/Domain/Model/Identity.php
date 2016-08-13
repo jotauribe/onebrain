@@ -13,7 +13,7 @@ interface Identity{
     /**
      * @return string
      */
-    public function id();
+    public function asString();
 
     /**
      * @return string

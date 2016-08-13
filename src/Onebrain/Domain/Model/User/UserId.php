@@ -17,7 +17,7 @@ class UserId implements Identity{
     /**
      * @return string
      */
-    public function id()
+    public function asString()
     {
         // TODO: Implement id() method.
     }

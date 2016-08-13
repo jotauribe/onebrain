@@ -21,7 +21,7 @@ class IdeaId implements Identity{
     /**
      * @return string
      */
-    public function id(){
+    public function asString(){
 
         return $this->id;
     }
