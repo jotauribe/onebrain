@@ -9,6 +9,7 @@
 namespace Onebrain\Domain\Model\Content\Idea;
 
 use Onebrain\Domain\Model\Identity;
+use Onebrain\Domain\Model\User\UserId;
 use Onebrain\Onebrain\Domain\Model\Content\Problem\ProblemId;
 
 class IdeaId implements Identity{
@@ -17,6 +18,15 @@ class IdeaId implements Identity{
      * @var string
      */
     private $id;
+
+    /**
+     * IdeaId constructor.
+     * @param string $anId
+     */
+    public function __construct($anId)
+    {
+        $this->id = $anId;
+    }
 
     /**
      * @return string
@@ -29,9 +39,13 @@ class IdeaId implements Identity{
     /**
      * @return string
      */
-    public function getName(){
+    public function equals(IdeaId $aIdeaId)
+    {
+        return $this->asString() === $aIdeaId->asString();
+    }
 
-        return 'IdeaId';
-
+    public function __toString()
+    {
+        return $this->id;
     }
 }

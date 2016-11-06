@@ -28,10 +28,6 @@
         <field name="updatedOn"
                type="date"
                nullable="false" />
-
-        <field name="isActive"
-               type="boolean"
-               column="is_active" />
         
         <field name="problemId" 
                type="ProblemId" />

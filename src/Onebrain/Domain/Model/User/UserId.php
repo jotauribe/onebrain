@@ -9,24 +9,39 @@
 namespace Onebrain\Domain\Model\User;
 
 use Onebrain\Domain\Model\Identity;
+use Onebrain\Infrastructure\Domain\Model\OrderedUuidIdentity;
 
 
 class UserId implements Identity{
 
+    /**
+     * @var string $id
+     */
+    private $id;
+
 
     /**
      * @return string
      */
+
+    public function __construct($anId)
+    {
+        $this->id = $anId;
+    }
+
     public function asString()
     {
-        // TODO: Implement id() method.
+        return $this->id;
+
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'UserId';
+    public function equals(UserId $userId){
+        return $userId->asString() === $this->asString();
     }
+
+    public function __toString()
+    {
+        return $this->asString();
+    }
+
 }

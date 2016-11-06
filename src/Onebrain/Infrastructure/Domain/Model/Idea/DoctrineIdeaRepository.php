@@ -13,6 +13,7 @@ use Doctrine\ORM\EntityRepository;
 use Onebrain\Domain\Model\Content\Idea\Idea;
 use Onebrain\Domain\Model\Content\Idea\IdeaId;
 use Onebrain\Domain\Model\Content\Idea\IdeaRepository;
+use Onebrain\Infrastructure\Domain\Model\OrderedUuidIdentity;
 
 class DoctrineIdeaRepository extends EntityRepository implements IdeaRepository{
 
@@ -21,7 +22,7 @@ class DoctrineIdeaRepository extends EntityRepository implements IdeaRepository{
      */
     public function nextIdentity(){
 
-        // TODO: Implement nextIdentity() method. Solve: UUID v1 or Ordered UUID?
+        return new IdeaId(OrderedUuidIdentity::orderedUuid());
 
     }
 

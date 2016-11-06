@@ -24,7 +24,7 @@ class User{
     /**
      * @var string
      */
-    private $lastname;
+    private $lastName;
 
     /**
      * @var string
@@ -32,19 +32,36 @@ class User{
     private $email;
 
     /**
+     * @var \DateTime
+     */
+    private $createdOn;
+
+    /**
+     * @var \DateTime
+     */
+    private $updatedOn;
+
+    /**
      * User constructor.
      *
-     * @param $userId
-     * @param string $name
-     * @param string $lastname
-     * @param string $email
+     * @param $anUserId
+     * @param $aName
+     * @param $aLastName
+     * @param $anEmail
      */
-    public function __construct($userId,$name, $lastname, $email){
+    public function __construct($anUserId,$aName, $aLastName, $anEmail){
 
-        $this->UserId = userId;
-        $this->name = $name;
-        $this->lastname = $lastname;
-        $this->email = $email;
+        $this->UserId = $anUserId;
+        $this->setName($aName);
+        $this->setLastName($aLastName);
+        $this->setEmail($anEmail);
+        $this->createdOn = new \DateTime();
+        $this->updatedOn = new \DateTime();
+    }
+
+    public function id()
+    {
+        return $this->userId;
     }
 
     /**
@@ -57,39 +74,52 @@ class User{
     }
 
     /**
-     * @param string $name
+     * @param $aName
      */
-    public function editName($name){
+    public function changeName($aName){
 
-        $this->name = $name;
+        $this->setName($aName);
+        $this->setUpdateDate();
 
+    }
+
+    protected function setName($aName)
+    {
+        $aName = trim($aName);
+        if (!$aName) {
+            throw new \InvalidArgumentException('A valid name must be provided');
+        }
     }
 
     /**
      * @return string
      */
-    public function editId(){
+    public function lastName(){
 
-        return $this->userId;
-
-    }
-
-    /**
-     * @return string
-     */
-    public function lastname(){
-
-        return $this->lastname;
+        return $this->lastName;
 
     }
 
     /**
-     * @param string $lastname
+     * @param string $aLastName
      */
-    public function editLastname($lastname){
+    public function changeLastName($aLastName){
 
-        $this->lastname = $lastname;
+        $this->setLastName($aLastName);
+        $this->setUpdateDate();
 
+    }
+
+    /**
+     * @param $aLastName
+     */
+    protected function setLastName($aLastName)
+    {
+        $aLastName = trim($aLastName);
+        if (!$aLastName) {
+            throw new \InvalidArgumentException('A valid lastname must be provided');
+        }
+        $this->lastName = $aLastName;
     }
 
     /**
@@ -102,12 +132,34 @@ class User{
     }
 
     /**
-     * @param string $email
+     * @param $anEmail
+     * @internal param string $email
      */
-    public function editEmail($email){
+    public function changeEmail($anEmail){
+        $this->setEmail($anEmail);
+        $this->setUpdateDate();
+    }
 
-        $this->email = $email;
+    /**
+     * @param $anEmail
+     * @internal param string $email
+     */
+    public function setEmail($anEmail){
+        $anEmail = trim($anEmail);
+        if (!$anEmail) {
+            throw new \InvalidArgumentException('A valid email must be provided');
+        }
 
+        $this->email = $anEmail;
+
+    }
+
+    /**
+     * @return void
+     */
+    protected function setUpdateDate()
+    {
+        $this->updatedOn = new \DateTime();
     }
 
 }

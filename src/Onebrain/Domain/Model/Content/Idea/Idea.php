@@ -48,15 +48,10 @@ class Idea{
     protected $updatedOn;
 
     /**
-     * @var bool
-     */
-    protected $isActive;
-
-    /**
      * Idea constructor.
      *
      * @param string $ideaId
-     * @param $authorId
+     * @param UserId $authorId
      * @param string $title
      * @param $description
      * @internal param string $author
@@ -65,12 +60,12 @@ class Idea{
     public function __construct($ideaId, $authorId, $title, $description){
 
 
-        $this->ideaId  = $ideaId;
-        $this->authorId = $authorId;
-        $this->title = $title;
-        $this->description = $description;
-        $this->isActive = true;
+        $this->setIdeaId($ideaId);
+        $this->setAuthorId($authorId);
+        $this->setTitle($title);
+        $this->setDescription($description);
         $this->createdOn = new \DateTime();
+        $this->updatedOn = new \DateTime();
 
 
     }
@@ -78,7 +73,7 @@ class Idea{
     /**
      * @return string
      */
-    public function ideaId()
+    public function id()
     {
         return $this->ideaId;
     }
@@ -108,28 +103,81 @@ class Idea{
     }
 
     /**
+     * @param IdeaId $ideaId
+     */
+    protected function setIdeaId($ideaId)
+    {
+        $this->ideaId = $ideaId;
+    }
+
+    /**
+     * @param ProblemId $problemId
+     */
+    protected function setProblemId($problemId)
+    {
+        $this->problemId = $problemId;
+    }
+
+    /**
+     * @param UserId $authorId
+     */
+    protected function setAuthorId($authorId)
+    {
+        if(is_null($authorId) || !($authorId instanceof UserId))
+        {
+            throw  new \InvalidArgumentException('Ivalid Author provided. Author must be an instance of User');
+        }
+        $this->authorId = $authorId;
+    }
+
+    /**
      * @param string $title
      */
-    public function editTitle($title)
+    protected function setTitle($title)
     {
+        $title = trim($title);
+        if (!$title) {
+            throw new \InvalidArgumentException('Idea title not provided. A valid idea title must be provided');
+        }
         $this->title = $title;
     }
 
     /**
-     * @param string $body
+     * @param string $description
      */
-    public function editDescription($description)
+    protected function setDescription($description)
     {
-        $this->body = $description;
+        $description = trim($description);
+        if (!$description) {
+            throw new \InvalidArgumentException('Idea description not provided');
+        }
+        $this->description = $description;
     }
 
     /**
-     * @return bool
+     * @return void
      */
-    public function isActive(){
+    protected function setUpdateDate()
+    {
+        $this->updatedOn = new \DateTime();
+    }
 
-        return $this->isActive;
+    /**
+     * @param string $title
+     */
+    public function changeTitle($title)
+    {
+        $this->setTitle($title);
+        $this->setUpdateDate();
+    }
 
+    /**
+     * @param string $description
+     */
+    public function changeDescription($description)
+    {
+        $this->setDescription($description);
+        $this->setUpdateDate();
     }
 
     /**
